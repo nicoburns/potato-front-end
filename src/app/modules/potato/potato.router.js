@@ -3,7 +3,8 @@ import Backbone from 'backbone';
 
 import RootRegion from 'root.region';
 
-import HelloView  from './views/hello';
+import PotatoListView  from './views/potatolist.view';
+import FlickrFeedCollection from './models/flickrfeed.collection'
 
 
 export default Backbone.Router.extend({
@@ -13,8 +14,14 @@ export default Backbone.Router.extend({
   },
 
   list: function () {
-    const helloView = new HelloView();
-    RootRegion.show(helloView);
+    const potatoList = new FlickrFeedCollection({tags: 'potato'});
+    const helloView = new PotatoListView({collection: potatoList});
+
+    potatoList.fetch()
+    .then(() => {
+      RootRegion.show(helloView);
+    })
+    
   },
 
   detail: function () {

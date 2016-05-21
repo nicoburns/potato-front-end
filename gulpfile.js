@@ -57,6 +57,11 @@ gulp.task('serve', function() {
   $.connect.server({
     root: dist,
     port: port,
+    middleware: function (connect, opt) {
+        opt.route = '/proxy';
+        var proxy = new $.connectProxy(opt);
+        return [proxy];
+    },
     livereload: {
       port: 35728
     }

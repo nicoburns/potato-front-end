@@ -9,9 +9,7 @@ export default Marionette.ItemView.extend({
   template: template,
 
   serializeData() {
-    return {
-      name: 'world'
-    };
+    return {'potatoes': this.collection.toJSON()};
   }
 
 });
