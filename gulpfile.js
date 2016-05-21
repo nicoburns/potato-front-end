@@ -42,11 +42,10 @@ gulp.task('html', function() {
 });
 
 gulp.task('styles',function(cb) {
-  return gulp.src(src + 'stylus/main.styl')
-    .pipe($.stylus({
-      compress: isProduction,
-      'include css' : true
-    }))
+  return gulp.src(src + 'styles/main.scss')
+    .pipe($.sass({
+      outputSyle: (isProduction ? 'compressed' : 'nested')
+    }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: autoprefixerBrowsers}))
     .pipe(gulp.dest(dist + 'css/'))
     .pipe($.size({ title : 'css' }))
@@ -71,7 +70,7 @@ gulp.task('static', function(cb) {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(src + 'stylus/*.styl', ['styles']);
+  gulp.watch(src + 'styles/*.scss', ['styles']);
   gulp.watch(src + 'index.html', ['html']);
   gulp.watch([src + 'app/**/*.js', src + 'app/**/*.hbs'], ['scripts']);
 });

@@ -15,5 +15,6 @@
     "tests"
   ],
   "dependencies": {
+    "inuit-starter-kit": "^0.2.9"
   }
 }
