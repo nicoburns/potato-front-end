@@ -1,9 +1,8 @@
 import $ from 'jquery';
 import Backbone from 'backbone';
 
-import Router from './router';
+import PotatoRouter from './modules/potato/potato.router';
 
-
-const router = new Router();
+const potatoRouter = new PotatoRouter();
 
 Backbone.history.start();
