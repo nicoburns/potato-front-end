@@ -1,8 +1,9 @@
 import {map} from 'lodash';
 import Backbone from 'backbone';
+import FlickrFeedItem from './flickrfeeditem.model';
 
 export default Backbone.Collection.extend({
-	
+	model: FlickrFeedItem,
 	baseURL: '/proxy/api.flickr.com/services/feeds/photos_public.gne',
 	url: function () {
 		return this.baseURL + '?' + map(this.flickr, (value, key) => key + '=' + value).join('&');

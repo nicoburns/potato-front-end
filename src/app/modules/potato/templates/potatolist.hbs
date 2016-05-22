@@ -1,14 +1,14 @@
 <ul class="list-bare">
 {{#each potatoes}}
 	<li class="media">
-	<div style="background: URL({{media.m}}); background-size: cover; background-position: center; height: 150px; width: 250px" alt="" class="media__img" />
+	<div style="background: URL({{media}}); background-size: cover; background-position: center; height: 150px; width: 250px" alt="" class="media__img" />
     <div class="media__body">
    		<h2>{{title}}</h2>
-        <div>
+        <div class='feed-list__item__details'>
         	<a href="https://www.flickr.com/photos/{{author_id}}">{{author}}</a>
-        	<p>Published: {{date_taken}}</p>
+        	<p>Published: {{#with date_taken}}{{day}}{{daySuffix}} {{month}} {{year}} at {{hours}}:{{minutes}}{{/with}}</p>
         	<a href="{{link}}">View on Flickr</a>
-    </div>
+    	</div>
     </li>
 {{/each}}
 </ul>
