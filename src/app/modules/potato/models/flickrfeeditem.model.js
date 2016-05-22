@@ -19,6 +19,9 @@ export default Backbone.Model.extend({
 		// Convert date string to Date object
 		response.date_taken = new Date(response.date_taken);
 
+		// Parse tags to array
+		response.tags = response.tags.split(" ");
+
 		return response;
 	},
 
