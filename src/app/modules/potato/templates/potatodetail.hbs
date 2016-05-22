@@ -4,13 +4,13 @@
 		<a href="{{link}}">{{title}}</a>
 	</h1>
 
-	<p class="c-potato-metadata">
+	<p>
+		<a class="c-potato-metadata__author" href="https://www.flickr.com/photos/{{author_id}}">{{author}}</a> | 
 		<span class="c-potato-metadata__date" >Published: {{#with date_taken}}{{day}}{{daySuffix}} {{month}} {{year}} at {{hours}}:{{minutes}}{{/with}}</span>
-		<a class="c-potato-metadata__author" href="https://www.flickr.com/photos/{{author_id}}">{{author}}</a>
 	</p>
 
 	<li class="media">
-		<a href="#!/potato/{{id}}" style="background-image: URL({{media}})" class="c-potato-detail__image media__img" />
+		<img src="{{media}})" class="c-potato-detail__image media__img" />
 	    <div class="media__body">
 			<p>Lorem ipsum dolor sit amet, sea dolorem definitionem cu. Ei has liber accusam vituperata, his ei quidam fabulas molestie. An evertitur disputationi ius, dicta integre salutatus id quo, erat facilisis in vim. Scripta fabulas quaestio mel ne. An quas accumsan percipitur mea, probo malorum mediocrem ut sit, alia dicam et cum.</p>
 
