@@ -1,6 +1,8 @@
 
 .c-potato-list {
 	@extend %list-bare;
+	height: 100%;
+	overflow: scroll;
 
 	li {
 		border-bottom: 1px solid #ccc;

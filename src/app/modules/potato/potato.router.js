@@ -9,10 +9,12 @@ import FlickrFeedCollection from './models/flickrfeed.collection'
 
 
 export default Backbone.Router.extend({
+
   routes: {
     "": "list",
     "!/potato/:id": "detail"
   },
+
 
   // Allows a single collection to easily be shared
   getPotatoList: function () {
@@ -28,7 +30,11 @@ export default Backbone.Router.extend({
   list: function () {
     this.getPotatoList()
       .then(potatoList => {
-        const potatoListView = new PotatoListView({collection: potatoList});
+        const potatoListView = new PotatoListView({
+          collection: potatoList,
+          initialScrollPosition: this.scrollPosition,
+          persistScrollPosition: (position) => {this.scrollPosition = position}
+        });
         RootRegion.show(potatoListView);
       });
   },
