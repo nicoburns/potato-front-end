@@ -4,6 +4,7 @@ import Backbone from 'backbone';
 import RootRegion from 'root.region';
 
 import PotatoListView  from './views/potatolist.view';
+import PotatoDetailView  from './views/potatodetail.view';
 import FlickrFeedCollection from './models/flickrfeed.collection'
 
 
@@ -27,16 +28,17 @@ export default Backbone.Router.extend({
   list: function () {
     this.getPotatoList()
       .then(potatoList => {
-        const helloView = new PotatoListView({collection: potatoList});
-        RootRegion.show(helloView);
+        const potatoListView = new PotatoListView({collection: potatoList});
+        RootRegion.show(potatoListView);
       });
   },
 
   detail: function (id) {
     this.getPotatoList()
       .then(potatoList => potatoList.get(id))
-      .then(() => {
-
+      .then(potatoModel => {
+        const potatoDetailView = new PotatoDetailView({model: potatoModel});
+        RootRegion.show(potatoDetailView);
       });
   }
 

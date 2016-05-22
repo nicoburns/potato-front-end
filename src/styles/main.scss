@@ -19,6 +19,7 @@
 
 // Base
 @import "../bower_components/inuit-page/base.page";
+@import "./base.appframe";
 
 // Objects
 @import "../bower_components/inuit-list-bare/objects.list-bare";
@@ -26,7 +27,8 @@
 @import "../bower_components/inuit-media/objects.media";
 
 // Components
-@import "./components/potato";
+@import "./components/potatolist";
+@import "./components/potatodetail";
 
 // Trumps
 @import "../bower_components/inuit-clearfix/trumps.clearfix";

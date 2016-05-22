@@ -1,0 +1,18 @@
+<div class="c-potato-detail">
+	<a class="c-potato-detail__backlink" href='#'>Back</a>
+	<h1 class="c-potato-detail__heading">
+		<a href="{{link}}">{{title}}</a>
+	</h1>
+
+	<p class="c-potato-metadata">
+		<span class="c-potato-metadata__date" >Published: {{#with date_taken}}{{day}}{{daySuffix}} {{month}} {{year}} at {{hours}}:{{minutes}}{{/with}}</span>
+		<a class="c-potato-metadata__author" href="https://www.flickr.com/photos/{{author_id}}">{{author}}</a>
+	</p>
+
+	<li class="media">
+		<a href="#!/potato/{{id}}" style="background-image: URL({{media}})" class="c-potato-detail__image media__img" />
+	    <div class="media__body">
+			
+	    </div>
+	</li>
+</div>
