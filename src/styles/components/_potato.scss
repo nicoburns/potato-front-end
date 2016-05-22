@@ -1,0 +1,56 @@
+
+.c-potato-list {
+	@extend %list-bare;
+
+	li {
+		border-bottom: 1px solid #ccc;
+	}
+}
+
+.c-potato-list__image {
+	// Width is flexible within a range
+	width: 25%;
+	min-width: 150px;
+
+	// Height is proportional to width, except at small sizes
+	// http://www.wmyl.se/en/blog/proportional-scaling-responsive-boxes-using-just-css/
+	padding-bottom: 15%;
+	min-height: 125px;
+
+	background-size: cover;
+	background-position: center;
+}
+
+.c-potato-list__heading {
+	text-overflow: ellipsis;
+    width: 94%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+@media (max-width: 799px) {
+
+	.c-potato-list__heading {
+		margin-bottom: 0;
+	}
+
+	.c-potato-metadata {
+		margin-top: 0;
+		display: block;
+	}
+
+	.c-potato-metadata__date   { display: block }
+}
+
+@media (min-width: 800px) {
+
+	.c-potato-metadata {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.c-potato-metadata__author { order: 1; }
+	.c-potato-metadata__date   { order: 2; margin-left: 20px}
+	.c-potato-metadata__link   { order: 3; margin-left: 20px}
+}
