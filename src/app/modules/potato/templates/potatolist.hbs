@@ -1,14 +1,15 @@
 <ul class="c-potato-list">
 {{#each potatoes}}
 	<li class="media">
-	<div style="background-image: URL({{media}})" class="c-potato-list__image media__img" />
-    <div class="media__body">
-   		<h2 class="c-potato-list__heading">{{title}}</h2>
-        <p class="c-potato-metadata">
-        	<span class="c-potato-metadata__date" >Published: {{#with date_taken}}{{day}}{{daySuffix}} {{month}} {{year}} at {{hours}}:{{minutes}}{{/with}}</span>
-        	<a class="c-potato-metadata__author" href="https://www.flickr.com/photos/{{author_id}}">{{author}}</a>
-        	<a class="c-potato-metadata__link" href="{{link}}">View on Flickr</a>
-    	</p>
+		<div style="background-image: URL({{media}})" class="c-potato-list__image media__img" />
+	    <div class="media__body">
+	   		<h2 class="c-potato-list__heading">{{title}}</h2>
+	        <p class="c-potato-metadata">
+	        	<span class="c-potato-metadata__date" >Published: {{#with date_taken}}{{day}}{{daySuffix}} {{month}} {{year}} at {{hours}}:{{minutes}}{{/with}}</span>
+	        	<a class="c-potato-metadata__author" href="https://www.flickr.com/photos/{{author_id}}">{{author}}</a>
+	        	<a class="c-potato-metadata__link" href="{{link}}">View on Flickr</a>
+	    	</p>
+	    </div>
     </li>
 {{/each}}
 </ul>
