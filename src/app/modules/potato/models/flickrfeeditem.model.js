@@ -5,9 +5,13 @@ export default Backbone.Model.extend({
 
 	parse: function (response, options) {
 
+		// Parse photo id from link
+		const parsedId = /([\d]*)\/?$/.exec(response.link);
+		if (parsedId.length >= 2) response.id = parsedId[1];
+
 		// Parse author name from format "email@domain (author name)"
 		const parsedAuthor = /\(([^)]*)\)/.exec(response.author);
-		response.author = (parsedAuthor.length >= 2) ? parsedAuthor[1] : response.author;
+		if (parsedAuthor.length >= 2) response.author = parsedAuthor[1];
 
 		// Unnest media property
 		response.media = response.media.m;

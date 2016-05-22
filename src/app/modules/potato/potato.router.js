@@ -10,21 +10,34 @@ import FlickrFeedCollection from './models/flickrfeed.collection'
 export default Backbone.Router.extend({
   routes: {
     "": "list",
-    "potato/:id": "detail"
+    "!/potato/:id": "detail"
+  },
+
+  // Allows a single collection to easily be shared
+  getPotatoList: function () {
+    if (this.potatoListPromise) {
+      return this.potatoListPromise;
+    } else {
+      const potatoList       = new FlickrFeedCollection({tags: 'potato'});
+      this.potatoListPromise = potatoList.fetch().then(() => potatoList);
+      return this.potatoListPromise;
+    }
   },
 
   list: function () {
-    const potatoList = new FlickrFeedCollection({tags: 'potato'});
-    const helloView = new PotatoListView({collection: potatoList});
-
-    potatoList.fetch()
-    .then(() => {
-      RootRegion.show(helloView);
-    })
-    
+    this.getPotatoList()
+      .then(potatoList => {
+        const helloView = new PotatoListView({collection: potatoList});
+        RootRegion.show(helloView);
+      });
   },
 
-  detail: function () {
+  detail: function (id) {
+    this.getPotatoList()
+      .then(potatoList => potatoList.get(id))
+      .then(() => {
 
+      });
   }
+
 });
