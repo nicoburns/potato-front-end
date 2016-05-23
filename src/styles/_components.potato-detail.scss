@@ -32,3 +32,10 @@
     	&:visited { color: black; }
     }
 }
+
+@media (max-width: 480px) {
+	.c-potato-detail__image {
+		width: 100%;
+		padding: 0;
+	}
+}
