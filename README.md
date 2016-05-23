@@ -17,6 +17,10 @@ I based my project on the [Modern Backbone Starter-kit](https://github.com/sabar
 
 - The CSS is organised according to the [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/) methodology, with components from the [Inuit.CSS](https://github.com/inuitcss) project. I like inuit because it gives you reusable library code without getting in your way like bootstrap/foundation.
 - Marionette enforces a 1:1 relationship between controller and router. For this reason, I have ignored the controllers and simply used the router as a controller. For a larger project I would probably want a better controller/router implementation.
+- In light of this, and in order to enable the sharing of state between the two views, the collection is stored on the router.
+- The scroll position of the list view is also saved (on the router) and restored when that view is rentered. In a larger app, additional logic would be needed to ensure that this only happens if the list view is being entered from the detail view (as opposed to another part of the app).
+- I have made minimal changes to the build process that came with the boilerplate. It seems pretty good (I've been loving the live-reloading), but one thing I would like to add is sourcemaps. There is also an annoying issue where JavaScript/Handlebars syntax errors will cause the watch process to exit, after which it must be manually restarted.
+
 
 
 
