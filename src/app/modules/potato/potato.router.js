@@ -16,7 +16,8 @@ export default Backbone.Router.extend({
   },
 
 
-  // Allows a single collection to easily be shared
+  // Allows a single collection to easily be shared between list and detail views,
+  // and ensures that it is only fetched once per session.
   getPotatoList: function () {
     if (this.potatoListPromise) {
       return this.potatoListPromise;

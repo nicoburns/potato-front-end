@@ -1,25 +1,32 @@
-# Modern Backbone Starter-kit
+# Potato Front-End Coding Task
 
-[![Dependency Status](http://david-dm.org/sabarasaba/modern-backbone-starterkit.svg?style=flat)](https://david-dm.org/sabarasaba/modern-backbone-starterkit)
-[![Gitter](http://img.shields.io/badge/chat-online-brightgreen.svg?style=flat)](https://gitter.im/sabarasaba/modern-backbone-starterkit)
+I based my project on the [Modern Backbone Starter-kit](https://github.com/sabarasaba/modern-backbone-starterkit), which seems to contain a lot of sensible defaults for a modern backbone project (webpack, babel, marionette, karma, etc). I made the following changes: 
+
+- Replaced Stylus with SASS
+- Changed directory structure so that is organised by 'module'.
+- Changed rendering code to take advantage of Marionette's `Region`
+
+###Issues to flag up
+
+- The API is not CORS enabled (workaround enabled for development)
+- The API doesn't provide a description suitable for use on the detail page: I have left it as Lorem Ipsum text
+- The wireframes don't specify which list view design to use at exactly 800px.
+- I have implemented the layout but haven't bothered making things pretty
+
+### Additional notes
+
+- The CSS is organised according to the [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/) methodology, with components from the [Inuit.CSS](https://github.com/inuitcss) project. I like inuit because it gives you reusable library code without getting in your way like bootstrap/foundation.
+- Marionette enforces a 1:1 relationship between controller and router. For this reason, I have ignored the controllers and simply used the router as a controller. For a larger project I would probably want a better controller/router implementation.
+
+
+
+## Documentation from Modern Backbone Starter-kit
 
 > This project provides a prepared development environment based on [Gulp](http://gulpjs.com/), [Backbone](http://backbonejs.org/), [Babel](https://babeljs.io/) and [Webpack](http://webpack.github.io/). You can  use it to quickly bootstrap your web application projects. All the parts of this project template are easily replaceable.
 
 
-### Getting Started
-
-Just [clone](github-windows://openRepo/https://github.com/sabarasaba/modern-backbone-starterkit) or [fork](https://github.com/sabarasaba/modern-backbone-starterkit/fork) the repo and start hacking:
-
-```shell
-$ git clone -o upstream https://github.com/sabarasaba/modern-backbone-starterkit.git AwesomeApp && cd $_
-$ npm install -g gulp karma-cli     # Install Gulp task runner and Karma test runner globally
-$ npm install                       # Install Node.js components listed in ./package.json
-```
-### A Note on ES Classes
-ES2015 Classes do *not* work well with Backbone or Marionette at time of writing. See https://github.com/jashkenas/backbone/issues/3560. Use Backbone's built in extend functions to get around this for the time being.
-
 ### Development
-Builds the application and starts a webserver with livereload. By default the webserver starts at port 1337.
+Builds the application and starts a webserver with livereload. By default the webserver starts at port 3000.
 
 ```shell
 $ gulp
@@ -38,18 +45,6 @@ Builds a minified version of the application in the dist folder.
 $ gulp build --type production
 ```
 
-### How to Update
-
-You can always fetch and merge the recent changes from this repo back into
-your own project:
-
-```shell
-$ git checkout master
-$ git fetch upstream
-$ git merge upstream/master
-$ npm install
-```
-
 ### How to Test
 
 Run unit tests and integration tests are powered by [Karma](http://karma-runner.github.io/0.12/index.html), [Mocha](http://mochajs.org/) and [Chai](http://chaijs.com/):
@@ -66,11 +61,3 @@ $ karma start
  * [Karma - Spectacular test runner](http://karma-runner.github.io/0.12/index.html)
  * [Webpack](http://webpack.github.io/)
  * [Babel - Use next generation JavaScript, today](https://babeljs.io/)
-
-### Support
-
-Have feedback, feature request or need help? Create an issue !
-
-### Copyright
-
-Licensed under MIT License (MIT). See [LICENSE.txt](./LICENSE)
