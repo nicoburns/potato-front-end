@@ -1,6 +1,22 @@
 var webpack = require('webpack');
 var path    = require('path');
 
+// Service worker configuration
+module.exports.serviceWorker = {
+    debug: false,
+    entry: './src/sw.js',
+    output: output = {
+        path: __dirname,
+        filename: 'sw.js'
+    },
+    module : {
+        loaders : [
+            { test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader' }
+        ]
+    }
+}
+
+// Main script configuration
 var entry = './src/app/main.js',
     output = {
         path: __dirname,

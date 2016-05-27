@@ -8,6 +8,7 @@ var $ = require('gulp-load-plugins')({
 var environment = $.util.env.type || 'development';
 var isProduction = environment === 'production';
 var webpackConfig = require('./webpack.config.js')[environment];
+var webpackSWConfig = require('./webpack.config.js').serviceWorker;
 
 var port = $.util.env.port || 3000;
 var src = 'src/';
@@ -35,6 +36,19 @@ gulp.task('scripts', function() {
       this.emit('end');
     })
     .pipe(gulp.dest(dist + 'js/'))
+    .pipe($.size({ title : 'js' }))
+    .pipe($.connect.reload());
+});
+
+gulp.task('service-worker', function() {
+  return gulp.src(webpackSWConfig.entry)
+    .pipe($.webpackStream(webpackSWConfig))
+    .on('error', function(error) {
+      $.util.log($.util.colors.red(error.message));
+      $.connect.reload();
+      this.emit('end');
+    })
+    .pipe(gulp.dest(dist))
     .pipe($.size({ title : 'js' }))
     .pipe($.connect.reload());
 });
@@ -83,6 +97,7 @@ gulp.task('watch', function() {
   gulp.watch(src + 'styles/**/*.scss', ['styles']);
   gulp.watch(src + 'index.html', ['html']);
   gulp.watch([src + 'app/**/*.js', src + 'app/**/*.hbs'], ['scripts']);
+  gulp.watch(src + 'sw.js', ['service-worker']);
 });
 
 gulp.task('clean', function(cb) {
@@ -90,11 +105,10 @@ gulp.task('clean', function(cb) {
 });
 
 
-
 // by default build project and then watch files in order to trigger livereload
 gulp.task('default', ['build', 'serve', 'watch']);
 
 // waits until clean is finished then builds the project
 gulp.task('build', ['clean'], function(){
-  gulp.start(['static', 'html','scripts','styles']);
+  gulp.start(['static','html','scripts','service-worker','styles']);
 });
