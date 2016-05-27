@@ -95,6 +95,7 @@ gulp.task('static', function(cb) {
 
 gulp.task('watch', function() {
   gulp.watch(src + 'styles/**/*.scss', ['styles']);
+  gulp.watch(src + 'static/**/*', ['static']);
   gulp.watch(src + 'index.html', ['html']);
   gulp.watch([src + 'app/**/*.js', src + 'app/**/*.hbs'], ['scripts']);
   gulp.watch(src + 'sw.js', ['service-worker']);
