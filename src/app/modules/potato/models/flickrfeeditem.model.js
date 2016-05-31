@@ -37,7 +37,7 @@ export default Backbone.Model.extend({
 			year:      date.getFullYear(),
 			hours:     date.getHours(),
 			minutes:   date.getMinutes()
-		}
+		};
 	},
 
 	toJSON: function () {
@@ -45,4 +45,4 @@ export default Backbone.Model.extend({
 		attributes.date_taken = this.dateToHash(this.get('date_taken'));
 		return attributes;
 	}
-})
+});

@@ -14,11 +14,11 @@ export default Backbone.Collection.extend({
 		this.flickr = {
 			tagmode: 'all',
       		format: 'json',
-		}
+		};
 
 		options = options || {};
 		if (options.tags) {
-			this.flickr.tags = options.tags
+			this.flickr.tags = options.tags;
 		}
 	},
 
@@ -36,7 +36,7 @@ export default Backbone.Collection.extend({
 		// Remove wrapper function from returned JSON string
 		response = response
 			.replace(/^jsonFlickrFeed\(/, '')
-			.replace(/\)\r?\n?$/, '')
+			.replace(/\)\r?\n?$/, '');
 
 		// JSON.parse doesn't like escaped single quotes
 		response = response.replace(/\\'/g, "'");
@@ -44,4 +44,4 @@ export default Backbone.Collection.extend({
 		response = JSON.parse(response);
 		return response.items;
 	}
-})
+});

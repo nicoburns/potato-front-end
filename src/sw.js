@@ -39,13 +39,13 @@ self.addEventListener('fetch', function(event) {
           return networkResponse;
         })
         // Else return generic 404 response
-        .catch(function (error) { return new Response(error, {status: 404}); })
+        .catch(function (error) { return new Response(error, {status: 404}); });
 
       // Check cache for entry matching the request
       cache.match(event.request).then(function(response) {
         // Return cached data and fall back to network 
         resolve(response || fetchPromise);
-      })
+      });
 
     });
 

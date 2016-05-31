@@ -12,7 +12,7 @@ export default Marionette.ItemView.extend({
   initialize(options) {
   	options = options || {};
   	this.initialScrollPosition = options.initialScrollPosition;
-  	this.persistScrollPosition = options.persistScrollPosition
+  	this.persistScrollPosition = options.persistScrollPosition;
   },
 
   serializeData() {

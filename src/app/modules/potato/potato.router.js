@@ -5,7 +5,7 @@ import RootRegion from 'root.region';
 
 import PotatoListView  from './views/potatolist.view';
 import PotatoDetailView  from './views/potatodetail.view';
-import FlickrFeedCollection from './models/flickrfeed.collection'
+import FlickrFeedCollection from './models/flickrfeed.collection';
 
 
 export default Backbone.Router.extend({
@@ -34,7 +34,7 @@ export default Backbone.Router.extend({
         const potatoListView = new PotatoListView({
           collection: potatoList,
           initialScrollPosition: this.scrollPosition,
-          persistScrollPosition: (position) => {this.scrollPosition = position}
+          persistScrollPosition: (position) => { this.scrollPosition = position; }
         });
         RootRegion.show(potatoListView);
       });
